@@ -1,0 +1,31 @@
+body {
+    background-color:#797E86;
+    color: #242321;
+    width: fit-content;
+    margin: 0 auto;
+    text-align: left;
+}
+
+h1 {
+    font-size: 55px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+li {
+    font-size: 24px;
+    list-style-type: none;
+}
+
+a {
+    color: #703820;
+    text-decoration:none;
+}
+
+a:hover {
+    color: #CE7851;
+}
+
+
