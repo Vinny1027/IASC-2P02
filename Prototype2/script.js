@@ -119,9 +119,9 @@ const animation = () =>
 
       // Rotate Knot 
       const rotationSpeed = 1
-      knot.rotation.x = Math.sin(elapsedTime * uiObject.rotationSpeed)
-      knot.rotation.y = Math.cos(elapsedTime * uiObject.rotationSpeed)
-      knot.rotation.z = Math.hypot(elapsedTime * uiObject.rotationSpeed)
+      knot.rotation.x = elapsedTime * uiObject.rotationSpeed
+      knot.rotation.y = elapsedTime * uiObject.rotationSpeed
+      knot.rotation.z = elapsedTime * uiObject.rotationSpeed
 
     // Animate Knot
     knot.position.y = Math.sin(elapsedTime * uiObject.speed) * uiObject.distance
