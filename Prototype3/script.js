@@ -67,7 +67,7 @@ scene.add(cave)
 //torusKnot.castShadow = true
 //scene.add(torusKnot)
 
-const capsuleGeometry = new THREE.CapsuleGeometry()
+const capsuleGeometry = new THREE.TorusKnotGeometry(1, 0.2)
 const capsuleMaterial = new THREE.MeshNormalMaterial()
 const capsule = new THREE.Mesh(capsuleGeometry, capsuleMaterial)
 capsule.position.set(6, 3, -3)
@@ -146,8 +146,8 @@ const animation = () =>
     const elapsedTime = clock.getElapsedTime()
 
     // Animate Objects
-    capsule.rotation.x = elapsedTime
-    capsule2.rotation.x = elapsedTime
+    capsule.rotation.y = elapsedTime
+    capsule2.rotation.y = elapsedTime
     torus.rotation.y = elapsedTime
 
     // Update directionalLightHelper
