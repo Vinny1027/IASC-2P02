@@ -60,31 +60,25 @@ cave.receiveShadow = true
 scene.add(cave)
 
 // Objects
-//const torusKnotGeometry = new THREE.TorusKnotGeometry(1, 0.2)
-//const torusKnotMaterial = new THREE.MeshNormalMaterial()
-//const torusKnot = new THREE.Mesh(torusKnotGeometry, torusKnotMaterial)
-//torusKnot.position.set(6, 1, 0)
-//torusKnot.castShadow = true
-//scene.add(torusKnot)
+const torusKnotGeometry = new THREE.TorusKnotGeometry(1, 0.2)
+const torusKnotMaterial = new THREE.MeshNormalMaterial()
+const torusKnot = new THREE.Mesh(torusKnotGeometry, torusKnotMaterial)
+torusKnot.position.set(6, 3, 3)
+torusKnot.castShadow = true
+scene.add(torusKnot)
 
-const capsuleGeometry = new THREE.TorusKnotGeometry(1, 0.2)
-const capsuleMaterial = new THREE.MeshNormalMaterial()
-const capsule = new THREE.Mesh(capsuleGeometry, capsuleMaterial)
-capsule.position.set(6, 3, -3)
-capsule.castShadow = true
-scene.add(capsule)
-
-const capsule2Geometry = new THREE.CapsuleGeometry()
-const capsule2Material = new THREE.MeshNormalMaterial()
-const capsule2 = new THREE.Mesh(capsuleGeometry, capsuleMaterial)
-capsule2.position.set(6, 3, 3)
-capsule2.castShadow = true
-scene.add(capsule2)
+const torusKnot2Geometry = new THREE.TorusKnotGeometry(1, 0.2)
+const torusKnot2Material = new THREE.MeshNormalMaterial()
+const torusKnot2 = new THREE.Mesh(torusKnot2Geometry, torusKnot2Material)
+torusKnot2.position.set(6, 3, -3)
+torusKnot2.castShadow = true
+scene.add(torusKnot2)
 
 const torusGeometry = new THREE.TorusGeometry(1, 0.2, 5)
 const torusMaterial = new THREE.MeshNormalMaterial()
 const torus = new THREE.Mesh(torusGeometry, torusMaterial)
 torus.position.set(6, 0.3, 0)
+torus.rotation.y = Math.PI * 0.5
 torus.castShadow = true
 scene.add(torus)
 /************
@@ -146,9 +140,9 @@ const animation = () =>
     const elapsedTime = clock.getElapsedTime()
 
     // Animate Objects
-    capsule.rotation.y = elapsedTime
-    capsule2.rotation.y = elapsedTime
-    torus.rotation.y = elapsedTime
+    torusKnot.rotation.x = elapsedTime
+    torusKnot2.rotation.x = elapsedTime
+    torus.rotation.z = elapsedTime
 
     // Update directionalLightHelper
     directionalLightHelper.update()
