@@ -63,14 +63,20 @@ scene.add(cave)
 const torusKnotGeometry = new THREE.TorusKnotGeometry(1, 0.2)
 const torusKnotMaterial = new THREE.MeshNormalMaterial()
 const torusKnot = new THREE.Mesh(torusKnotGeometry, torusKnotMaterial)
-torusKnot.position.set(6, 3, 3)
+torusKnot.position.set(6, 3, 2)
+torusKnot.scale.y= 0.5
+torusKnot.scale.x= 0.5
+torusKnot.scale.z= 0.5
 torusKnot.castShadow = true
 scene.add(torusKnot)
 
 const torusKnot2Geometry = new THREE.TorusKnotGeometry(1, 0.2)
 const torusKnot2Material = new THREE.MeshNormalMaterial()
 const torusKnot2 = new THREE.Mesh(torusKnot2Geometry, torusKnot2Material)
-torusKnot2.position.set(6, 3, -3)
+torusKnot2.position.set(6, 3, -2)
+torusKnot2.scale.y= 0.5
+torusKnot2.scale.x= 0.5
+torusKnot2.scale.z= 0.5
 torusKnot2.castShadow = true
 scene.add(torusKnot2)
 
@@ -78,6 +84,8 @@ const torusGeometry = new THREE.TorusGeometry(1, 0.2, 5)
 const torusMaterial = new THREE.MeshNormalMaterial()
 const torus = new THREE.Mesh(torusGeometry, torusMaterial)
 torus.position.set(6, 0.3, 0)
+torus.scale.x= 3
+torus.scale.y= 0.3
 torus.rotation.y = Math.PI * 0.5
 torus.castShadow = true
 scene.add(torus)
@@ -142,7 +150,6 @@ const animation = () =>
     // Animate Objects
     torusKnot.rotation.x = elapsedTime
     torusKnot2.rotation.x = elapsedTime
-    torus.rotation.z = elapsedTime
 
     // Update directionalLightHelper
     directionalLightHelper.update()
