@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+    <title>Assignment 1</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- three.js importmap -->
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://ga.jspm.io/npm:three@0.172.0/build/three.module.js",
+            "OrbitControls": "https://ga.jspm.io/npm:three@0.172.0/examples/jsm/controls/OrbitControls.js",
+            "lil-gui": "https://ga.jspm.io/npm:lil-gui@0.20.0/dist/lil-gui.esm.js"
+          }
+        }
+        </script>
+    <!-- three.js scene -->
+     <script src="script.js" type="module"></script>
+</head>
+<body>
+  <div class="flexbox">
+    <!-- ESSAY -->
+     <div class="essay">
+      <h2>1. Flatness</h2>
+      <p><span class= "clickable" id="part-one">From inside the cave...</span></p>
+
+      <p class="text">The people in the cave first see a stationary triangle. <span class= "clickable" id="first-change">Then the triangle begins to move</span>. The triangle looks weird as it moves up and down; as if it’s trying to change its shape but is pinned down making it hold back from changing its form. The people in the cave think it’s symbolic, trying to change yet there’s always something holding them back. They see a triangle move up and down trying to become another shape but no matter what it does, it will always have the same fate; to end up as the same shape as it was born to be.<span class= "clickable" id="second-change"> The triangle begins to move more erratically</span>. They see the triangle move up, down, and diagonally, changing instantly from triangle to oval, again and again. The people in the cave think it has a mind of its own like them. They see this and think that it’s trying to escape, possibly from something that they don’t know about. It’s dark, it reflects the darkness within all of them. To them, the oval represents a mirror of what they can see in themselves. As the triangle moves around, it symbolizes change and growth even though there’s darkness within it.</p>
+
+      <p class="text">Second paragraph goes here.</p>
+
+      <h2>2. Seeing double</h2>
+      <p><span class= "clickable" id="part-two">From outside the cave...</span></p>
+
+      <p class="text">Third paragraph goes here. <span class= "clickable" id="third-change">Third change goes here</span>. <span class= "clickable" id="fourth-change">Forth change goes here</span>.</p>
+
+      <p class="text">Fourth paragraph goes here.</p>
+
+     </div>
+
+    <!-- SCENE -->
+    <div class="scene">
+      <canvas class="webgl"></canvas>
+    </div>
+  </div>
+</body>
