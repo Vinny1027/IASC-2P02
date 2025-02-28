@@ -61,15 +61,25 @@ cave.receiveShadow = true
 scene.add(cave)
 
 // Objects
-const coneGeometry = new THREE.ConeGeometry(1, 1)
-const coneMaterial = new THREE.MeshNormalMaterial()
-const cone = new THREE.Mesh(coneGeometry, coneMaterial)
-cone.position.set(9, 2, 0)
-cone.scale.y= 3
-cone.scale.x= 3
-cone.scale.z= 3
-cone.castShadow = true
-scene.add(cone)
+const torusGeometry = new THREE.TorusGeometry(2, 0.99, 4, 3, 6.283185307179586)
+const torusMaterial = new THREE.MeshNormalMaterial()
+const torus = new THREE.Mesh(torusGeometry, torusMaterial)
+torus.position.set(9, 1.5, 0)
+torus.scale.y= 1
+torus.scale.x= 1
+torus.scale.z= 1
+torus.castShadow = true
+scene.add(torus)
+
+const icoGeometry = new THREE.IcosahedronGeometry(0.5, 0)
+const icoMaterial = new THREE.MeshNormalMaterial()
+const ico = new THREE.Mesh(icoGeometry, icoMaterial)
+ico.position.set(9, 1.5, 0)
+ico.scale.y= 1
+ico.scale.x= 1
+ico.scale.z= 1
+ico.castShadow = true
+scene.add(ico)
 
 /************
  ** LIGHTS ** 
@@ -134,8 +144,7 @@ document.querySelector('#third-change').onclick = function(){
 
 // forth-change
 document.querySelector('#fourth-change').onclick = function(){
-    domObject.forthChange = true
-
+    domObject.fourthChange = true
 }
 
 
@@ -193,26 +202,30 @@ const animation = () =>
     // first-change
     if(domObject.firstChange)
     {
-        cone.rotation.z = elapsedTime
+        torus.rotation.z = elapsedTime
     }
 
     // second-change
     if(domObject.secondChange)
     {
-        cone.rotation.x = Math.sin(elapsedTime)
+        torus.rotation.y = (elapsedTime)
+        ico.position.z = Math.cos(elapsedTime)
     }
 
     // third-change
     if(domObject.thirdChange)
     {
-        cone.position.y = Math.cos(elapsedTime) + 3
- 
+        torus.position.y = Math.sin(elapsedTime) + 2
+        ico.position.y = Math.sin(elapsedTime) + 2
+
     }
 
     //forth-change
     if(domObject.fourthChange)
     {
-            
+        torus.rotation.y = Math.tan(elapsedTime)  
+        ico.position.z = Math.cos(elapsedTime)  
+
     }
 
     // Update directionalLightHelper
