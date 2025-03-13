@@ -95,6 +95,7 @@ const drawCube = (height, color) =>
 
     // Add cube to scene
     scene.add(cube)
+    
 }
 
 /* drawCube(0, 'maroon')
@@ -115,9 +116,9 @@ const uiObj = {
     saveSourceText() {
         saveSourceText()
     },
-    term1: '',
+    term1: 'dursley',
     color1: '',
-    term2: '',
+    term2: 'potter',
     color2: '',
     term3: '',
     color3: '',
@@ -233,12 +234,12 @@ const findSearchTermInTokenizedText = (term, color) =>
         // If tokenizedText[i] matches our searchTerm, then we draw a cube
         if(tokenizedText[i] === term){
             // convert i into height, which is a value between 0 and 20
-            const height = (100 / tokenizedText.length) * i * 0.2
+            let height = (i / tokenizedText.length) * 20
 
             // call drawCube function 100 times using converted height value
             for(let a = 0; a < 100; a++)
             {
-                drawCube(i, color)
+                drawCube(height, color)
             }
         }
     }
