@@ -72,6 +72,71 @@ scene.add(directionalLight)
  ************/
 // Cube Geometry
 const cubeGeometry = new THREE.BoxGeometry(0.5, 0.5, 0.5)
+const TorusGeometry = new THREE.TorusGeometry(1,0.4,2,5)
+const IcoGeometry = new THREE.IcosahedronGeometry(0.5, 0)
+
+const drawIco = (height, params) =>
+    {
+        // Create cube material
+        const IcoMaterial = new THREE.MeshStandardMaterial({
+            color: new THREE.Color(params.color)
+        })
+    
+        // Create cube
+        const Ico = new THREE.Mesh(IcoGeometry, IcoMaterial)
+    
+        // Position cube
+        Ico.position.x = (Math.random() - 0.5) * params.diameter
+        Ico.position.z = (Math.random() - 0.5) * params.diameter
+        Ico.position.y = height -10
+    
+        // Scale cube
+        Ico.scale.x = params.scale
+        Ico.scale.y = params.scale
+        Ico.scale.z = params.scale
+    
+        // Randomize cube rotation
+        if(params.randomized){
+            Ico.rotation.x = Math.random() * 2 * Math.PI
+            Ico.rotation.z = Math.random() * 2 * Math.PI
+            Ico.rotation.y = Math.random() * 2 * Math.PI
+        }
+    
+        // Add cube to scene
+        params.group.add(Ico)    
+    }
+
+
+const drawTorus = (height, params) =>
+    {
+        // Create cube material
+        const TorusMaterial = new THREE.MeshStandardMaterial({
+            color: new THREE.Color(params.color)
+        })
+    
+        // Create cube
+        const Torus = new THREE.Mesh(TorusGeometry, TorusMaterial)
+    
+        // Position cube
+        Torus.position.x = (Math.random() - 0.5) * params.diameter
+        Torus.position.z = (Math.random() - 0.5) * params.diameter
+        Torus.position.y = height -10
+    
+        // Scale cube
+        Torus.scale.x = params.scale
+        Torus.scale.y = params.scale
+        Torus.scale.z = params.scale
+    
+        // Randomize cube rotation
+        if(params.randomized){
+            Torus.rotation.x = Math.random() * 2 * Math.PI
+            Torus.rotation.z = Math.random() * 2 * Math.PI
+            Torus.rotation.y = Math.random() * 2 * Math.PI
+        }
+    
+        // Add cube to scene
+        params.group.add(Torus)    
+    }
 
 const drawCube = (height, params) =>
 {
@@ -126,37 +191,41 @@ const group3 = new THREE.Group()
 scene.add(group3)
 
 
+
 const uiObj = {
-    sourceText: "The quick brown fox jumped over the lazy dog.",
+    sourceText: " ",
     saveSourceText() {
         saveSourceText()
     },
     term1: {
         term: 'orion',
         color: '#4bb5c3',
+        geometry: 'Ico',
         group: group1,
         diameter: 10,
-        nCubes: 100,
+        nCubes: 10,
         randomized: true,
-        scale: 1
+        scale: 0.5,
     },
     term2: {
         term: 'optimus',
         color: '#ba0d0d',
+        geometry: 'cube',
         group: group2,
         diameter: 10,
-        nCubes: 100,
+        nCubes: 10,
         randomized: true,
-        scale: 1
+        scale: 2,
     },
     term3: {
         term: 'matrix',
-        color: '#5567ec',
+        color: '#2518d8',
+        geometry: 'torus',
         group: group3,
         diameter: 10,
-        nCubes: 100,
+        nCubes: 10,
         randomized: true,
-        scale: 1
+        scale: 0.7,
     },
     saveTerms() {
         saveTerms()
@@ -296,7 +365,18 @@ const findSearchTermInTokenizedText = (params) =>
             // call drawCube function 100 times using converted height value
             for(let a = 0; a < params.nCubes; a++)
             {
-                drawCube(height, params)
+                if(params.geometry === "cube")
+                {
+                    drawCube(height, params)
+                }
+                if(params.geometry === "torus")
+                {
+                    drawTorus(height, params)
+                }
+                if(params.geometry === "Ico")
+                {
+                    drawIco(height, params)
+                }
             }
         }
     }
@@ -320,6 +400,11 @@ const animation = () =>
 
     // Update OrbitControls
     controls.update()
+
+    // Scale Group 3
+    group3.scale.y = Math.cos(elapsedTime) * 2
+    group3.scale.x = Math.cos(elapsedTime) * 2
+    group3.scale.z = Math.cos(elapsedTime) * 2
 
     // Rotate Camera
     if(uiObj.rotateCamera)
