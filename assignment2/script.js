@@ -75,7 +75,7 @@ const cubeGeometry = new THREE.BoxGeometry(0.5, 0.5, 0.5)
 const TorusGeometry = new THREE.TorusGeometry(1,0.4,2,5)
 const IcoGeometry = new THREE.IcosahedronGeometry(0.5, 0)
 
-const drawIco = (height, params) =>
+const drawIco = (height, params, wireframe) =>
     {
         // Create cube material
         const IcoMaterial = new THREE.MeshStandardMaterial({
@@ -213,7 +213,7 @@ const uiObj = {
         geometry: 'cube',
         group: group2,
         diameter: 10,
-        nCubes: 10,
+        nCubes: 5,
         randomized: true,
         scale: 2,
     },
@@ -402,16 +402,16 @@ const animation = () =>
     controls.update()
 
     // Scale Group 3
-    group3.scale.y = Math.cos(elapsedTime) * 2
-    group3.scale.x = Math.cos(elapsedTime) * 2
-    group3.scale.z = Math.cos(elapsedTime) * 2
+    group3.scale.y = Math.cos(elapsedTime) * 1
+    group3.scale.x = Math.cos(elapsedTime) * 1
+    group3.scale.z = Math.cos(elapsedTime) * 1
 
     // Rotate Camera
     if(uiObj.rotateCamera)
     {
         camera.position.x = Math.sin(elapsedTime * 0.1) * 20
         camera.position.z = Math.cos(elapsedTime * 0.1) * 20
-        camera.position.y = 10
+        camera.position.y = 16
         camera.lookAt(0, 0, 0)
     }
 
