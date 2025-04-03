@@ -213,8 +213,8 @@ const uiObj = {
         geometry: 'cube',
         group: group2,
         diameter: 10,
-        nCubes: 5,
-        randomized: true,
+        nCubes: 3,
+        randomized: false,
         scale: 2,
     },
     term3: {
